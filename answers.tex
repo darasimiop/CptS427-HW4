@@ -1,0 +1,28 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{geometry}
+\geometry{margin=1in}
+\begin{document}
+
+\title{CptS 427 – Homework 4 Answers}
+\author{Darasimi Ogunbinu-Peters}
+\date{\today}
+\maketitle
+
+\section*{1. What salt is used in the password file?}
+The salt used for all cracked passwords is: \texttt{regard}.
+
+\section*{2. Which user has the most failed logins?}
+The user with the most failed logins is: \texttt{jamesh} with \texttt{16} failed login attempts.
+
+\section*{3. Which user has not logged in for the longest time?}
+The user who has not logged in for the longest time is: \texttt{wooda} (last login on \texttt{2023-01-07T18:31:18Z}).
+
+\section*{4. How did you determine the salt and cracked the hashes?}
+I wrote a Python script that brute-forced all combinations of password and salt from the provided \texttt{wordList.txt}, generating hashes using MD5. For each user’s stored hash, I computed:
+\[
+\texttt{MD5(password + salt)}
+\]
+and compared the result. If a match was found, the corresponding password and salt were recorded. All successful matches revealed \texttt{regard} as the common salt.
+
+\end{document}
